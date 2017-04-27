@@ -6,6 +6,7 @@
 package manaka.management.modele;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,16 +17,23 @@ public class Feuille extends BaseModele{
     private String designation;
     private Date dateajout;
     private List<Tache> tacheList;
-    private List<Tache> listMinimData;
     private List<Tache> tacheToRemove;
+    private List<Utilisateur> utilisateurList;
 
     public Feuille(int id) {
         super(id);
+        utilisateurList = new ArrayList<Utilisateur>();
+        tacheToRemove = new ArrayList<Tache>();
+    }
+
+    public List<Utilisateur> getUtilisateurList() {
+        return utilisateurList;
+    }
+
+    public void setUtilisateurList(List<Utilisateur> utilisateurList) {
+        this.utilisateurList = utilisateurList;
     }
     
-    public Feuille minimaData(){
-        return new Feuille(this.getDesignation(),this.getDateajout(),this.getId());
-    }
 
     public Feuille(String designation, Date dateajout, int id) {
         super(id);
@@ -53,17 +61,6 @@ public class Feuille extends BaseModele{
     public void setTacheList(List<Tache> tacheList) {
         this.tacheList = tacheList;
     }
-
-    public List<Tache> getListMinimData() {
-        return listMinimData;
-    }
-
-    public void setListMinimData(List<Tache> listMinimData) {
-        this.listMinimData = listMinimData;
-    }
-
-    
-    
 
     public String getDesignation() {
         return designation;

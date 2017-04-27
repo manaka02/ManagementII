@@ -14,6 +14,14 @@ public class Utilisateur extends BaseModele{
     private String mail;
     private String pass;
 
+    @Override
+    public String toString() {
+        return "Utilisateur{" + "nom=" + nom + ", mail=" + mail + ", pass=" + pass + '}';
+    }
+
+    
+    
+    
     public Utilisateur(String nom, int id) {
         super(id);
         this.nom = nom;

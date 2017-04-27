@@ -109,7 +109,13 @@ public class Tache extends BaseModele implements Cloneable{
         }
     }
     
-    
+    public String userListToString(){
+        String rep = "";
+        for (Utilisateur utilisateur : UtilisateurList) {
+            rep+=utilisateur.getId()+":"+utilisateur.getNom()+"/";
+        }
+        return rep;
+    }
     
     
     @Override
@@ -118,7 +124,7 @@ public class Tache extends BaseModele implements Cloneable{
     }
     
     public String toStringJson(){
-        return this.getId()+";"+this.getDesignation()+";"+dateMin+";"+dateMax+";"+this.tacheDuration()+";"+statut+";";
+        return this.getId()+";"+this.getDesignation()+";"+dateMin+";"+dateMax+";"+this.tacheDuration()+";"+statut+";"+this.userListToString();
     } 
     
     public String donneeDeBase(){
@@ -290,7 +296,11 @@ public class Tache extends BaseModele implements Cloneable{
     }
     
     public String generateRessourceLink(){
+        
         String ret = "";
+        if(UtilisateurList == null){
+            System.out.println("d null v zan ty leaz ah " +this.getDesignation());
+        }
         for (Utilisateur user : UtilisateurList) {
 
             ret+= "<a href='ressourcesData?id="+user.getId()+"'>" +  user.getNom() + "</a>  ";

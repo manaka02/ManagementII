@@ -52,11 +52,11 @@ public class NouvelleTacheController extends HttpServlet{
                 ServletContext context = getServletContext();
                 Feuille feuille = (Feuille) context.getAttribute("feuille");
                 System.out.println(designation + " " + parentId + " " + dateDebut + " " + dateFin + " " + statut);
-                TacheServices.createTache(feuille,  parentId, designation, dateDebut, dateFin,statut);
+                TacheServices.createTache(feuille, parentId, designation, dateDebut, dateFin,statut, true);
                 HibernateDao hibernate = new HibernateDao();
                 
                 req.setAttribute("feuille", feuille);
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/affiche.jsp");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/affiche");
                 dispatcher.forward(req, res);
             } catch (Exception ex) {
                 Logger.getLogger(NouvelleTacheController.class.getName()).log(Level.SEVERE, null, ex);

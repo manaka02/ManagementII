@@ -10,8 +10,7 @@
             <generator class="increment"/>
         </id> 
         <property name="mail"/>
-        <property name="nom"/>
-        <property name="pass"/>    
+        <property name="nom"/>  
     </class>
 
     

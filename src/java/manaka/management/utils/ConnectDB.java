@@ -11,7 +11,7 @@ public class ConnectDB {
     
     public Connection getConnection(){
         if(connection == null){
-            String url = "jdbc:postgresql://localhost/selfManagement";
+            String url = "jdbc:postgresql://localhost/Management";
             String user = "postgres";
             String password = "root";
             try {

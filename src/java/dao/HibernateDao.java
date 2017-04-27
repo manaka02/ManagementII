@@ -36,7 +36,24 @@ public class HibernateDao {
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
+    
+    public void saveSansTransaction(BaseModele obj)throws Exception{
+        Session session = null;
+        Transaction tr=null;
+        try{
+            session = getSessionFactory().openSession();
+            tr=session.beginTransaction();
+            session.save(obj);
 
+        }catch (Exception ex){
+            if(tr!=null)
+            throw ex;
+        }finally {
+            if(session!=null)
+                session.close();
+        }
+
+    }
 
     public void save(BaseModele obj) throws Exception{
         Session session = null;

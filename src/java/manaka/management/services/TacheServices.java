@@ -25,8 +25,8 @@ import manaka.management.utils.Utils;
  */
 public class TacheServices {
     
-    
-    public static void createTache(Feuille feuille, String idParent, String designation, String dateDebut, String dateFin, String statut){
+
+    public static void createTache(Feuille feuille, String idParent, String designation, String dateDebut, String dateFin, String statut, boolean isInsertToDB){
         try {
             Tache newTache = new Tache(designation,dateDebut,dateFin,statut);
             
@@ -35,16 +35,17 @@ public class TacheServices {
             newTache.setIdFeuille(feuille.getId());
             newTache.setIdParent(tacheParent.getId());
             newTache.setNiveau(tacheParent.getNiveau()+1);
+            newTache.setSuivant(1);
+            newTache.setNouveau(true);
             newTache.setRessource("1:Toavina");
+            
             TacheServices.insertTacheIntoList(newTache, tacheParent, feuille.getTacheList());
-            /**
-             * à mettre la mise en bse ici plus tard
-             */
-            TacheServices.setDateMinAndMaxAndUsersTacheList(feuille.getTacheList());
+
+            FeuilleServices.updateDataIntoDB(feuille);
+ 
         } catch (Exception ex) {
             Logger.getLogger(TacheServices.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
     
     /**
@@ -66,8 +67,7 @@ public class TacheServices {
      */
     public static void insertTacheByLine(Tache newTache, int numLigne, List<Tache> tacheList){
         TacheServices.decaler(tacheList, numLigne+1, -1, 1);
-        tacheList.add(numLigne, newTache);
-        newTache.setNouveau(true);
+        tacheList.add(numLigne, newTache); 
         newTache.setLigne(numLigne+1);
     }   
     
@@ -123,7 +123,7 @@ public class TacheServices {
         
         if(!tacheMere.isOldThan(tacheList.get(tacheMere.getLigne()+1))){
                 tacheToReturn = tacheMere;
-            } 
+        } 
         for (int i = tacheMere.getLigne(); i < tacheList.size(); i++) {
             if(tacheMere.isOldThan(tacheList.get(i))){
                 tacheToReturn = tacheList.get(i);
@@ -226,6 +226,7 @@ public class TacheServices {
     public static void updateTache(Feuille feuille, String id, String designation, String dateDebut, String dateFin, String statut) throws Exception {
         Tache newTache = new Tache(designation,dateDebut,dateFin,statut,id);
         TacheServices.UpdateTacheIntoList(newTache, feuille.getTacheList());
+        FeuilleServices.updateDataIntoDB(feuille);
     }
 
     /**
@@ -254,6 +255,8 @@ public class TacheServices {
         oldTache.setStatut(newTacheData.getStatut());
         oldTache.setModifie(true);
     }
+    
+   
     
     
     

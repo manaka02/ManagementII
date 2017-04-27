@@ -4,43 +4,53 @@
     Author     : Toavina RALAMBOSOA
 --%>
 
-<%@page import="manaka.management.modele.Feuille"%>
-<%@page import="java.util.List"%>
-<%@page import="manaka.management.modele.Tache"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-
-<head>
-	<title>Self-Management</title>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Bootstrap -->
-        <link href="webroot/css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="webroot/css/style.css" rel="stylesheet" media="screen">
-        <!-- MetisMenu CSS -->
-        <link href="webroot/css/metisMenu.min.css" rel="stylesheet">
-        
-        <!--Modal CSS-->
-        <link href="webroot/css/w3.css" rel="stylesheet">
-        <!-- Custom CSS -->
-        <link href="webroot/css/sb-admin-2.css" rel="stylesheet">
-        <!-- Custom Fonts -->
-        <link href="webroot/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-        
-</head>
-
-<% 
-    Feuille feuille = (Feuille)request.getAttribute("feuille");
-    List<Tache> tacheList = feuille.getTacheList();
-%>
+    <%@include file="includes/menuBarLink.jsp" %>
 
 <body>
     <%@include file="includes/menuBar.jsp" %>
 
     <%@include file="includes/modalLink.jsp" %>
 
+    <div id="modalMobile" class="w3-modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-16 w3-display-topright">×</span>
+        <div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width:600px">
+          <header class="w3-container"> 
+              <span onclick="document.getElementById('modalMobile').style.display='none'" class="w3-closebtn">×</span>
+              <div class="w3-center"><br>
+                        <h4 class="modalMobile-title"><i class="fa fa-edit" id="modal-title-icon"></i> Liste des ressources disponibles</h4>
+                    <div>
+                        <p class="w3-text-red"><i class="fa fa-warning"></i> Attention : les ressources choisies ne seront pas prises en compte si la tache comporte des sous-taches</p>
+                    </div>
+              </div>
+          </header>
+          <div class="w3-container modalMobile-content">
+              <form method="POST" action="ressourceList" id="modalMobile">
+                  <div class="w3-group w3-left col-sm-12">
+                      <a href="#" class="w3-btn w3-blue-grey w3-left"> <i class="fa fa-user-plus"></i> Nouvelle ressource</a>
+                  </div>
+                  <% for (Utilisateur elem : userList) { %> 
+                  <div class="w3-form w3-half" id="checkboxes">
+                      <input type="checkbox" id="modalMobile_<%=elem.getId()%>" name="<%=elem.getId()+":"+elem.getNom()%>"/> <label><%=elem.getNom() %></label>
+                    </div>
+                  <% } %>
+                  
+                  
+                  <div class="w3-form col-sm-12">
+                      <input type="submit" class="w3-btn w3-green w3-right w3-margin-left">
+                        <button onclick="document.getElementById('modalMobile').style.display='none'" type="button" class="w3-btn w3-red w3-right">Annuler</button>
+                  </div>
+                  
+              </form>
+
+          </div>
+
+          <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+            
+      <!--      <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>-->
+          </div>
+
+        </div>
+      </div>
     
     <div class="container-fluid">
         <div class="col-sm-12">
@@ -55,7 +65,7 @@
                             </div>
 
                             <div  class="form-group">
-                                <label>Tache mÃ¨re</label>
+                                <label>Tache mère</label>
                                 <select name="parentId"  class="form-control">
                                     <option value="">---</option>
 
@@ -63,7 +73,7 @@
                             </div>
 
                             <div  class="form-group">
-                                    <label>Date dÃ©but</label>
+                                    <label>Date début</label>
                                     <input type="date" name="dateDebut" required="" class="form-control">
                             </div>
 
@@ -74,7 +84,7 @@
                                 </div>
                                 <div class="col-sm-1">ou</div>
                                 <div class="col-sm-4">
-                                    <label>La durÃ©e</label>
+                                    <label>La durée</label>
                                         <input type="number" name="duree" min="1" class="form-control">
                                 </div>                      
                             </div>
@@ -92,7 +102,7 @@
                     <thead>
                         <tr>
                             <th>Nom de la tache</th>
-                            <th>Date dÃ©but</th>
+                            <th>Date début</th>
                             <th>Date fin</th>                            
                             <th>Ressources</th>
                             <th>Statut</th>

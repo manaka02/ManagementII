@@ -1,4 +1,5 @@
 
+import com.google.gson.Gson;
 import dao.HibernateDao;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -34,20 +35,12 @@ public class Main {
     public static void main(String[] data){
         try {
             HibernateDao hibernate = new HibernateDao();
-            Feuille feuille = FeuilleServices.initData(1);
+               List<BaseModele> userList = hibernate.findAll(new Utilisateur());
+                Gson gson = new Gson();
+                String classe = gson.toJson(userList);
+                System.out.println(classe);
+               
             
-            Tache t = feuille.getTacheList().get(2);
-            for (Tache tache : feuille.getTacheList()) {
-                System.out.println(tache.getDesignation() + " ligne =" + tache.getLigne());
-            }
-            System.out.println("*********************************");
-            Tache nouvelleTache = feuille.getTacheList().get(2).clone();
-            nouvelleTache.setDesignation("nouvelle tache");
-            TacheServices.insertTacheIntoList(nouvelleTache,feuille.getTacheList().get(2),feuille.getTacheList());
-            //TacheServices.removeTacheFromList(t, feuille);
-            for (Tache tache : feuille.getTacheList()) {
-                System.out.println(tache.getDesignation() + " ligne =" + tache.getLigne());
-            }
         }catch (Exception ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -36,6 +36,7 @@ public class ModificationController extends HttpServlet{
                 Feuille feuille = (Feuille) context.getAttribute("feuille");
                 int tacheId = Integer.parseInt(req.getParameter("id"));
                 Tache tacheATrouve = new Tache(tacheId);
+                
                 tacheATrouve= TacheServices.searchTache(tacheATrouve, feuille.getTacheList());
                 Gson gson = new Gson();
                 out.println(gson.toJson(tacheATrouve.toStringJson()));
@@ -60,13 +61,14 @@ public class ModificationController extends HttpServlet{
                 String dateDebut = req.getParameter("dateDebut");
                 String dateFin = req.getParameter("dateFin");
                 String statut = req.getParameter("statut");
+                String ressource = req.getParameter("ressource");
                 Feuille feuille = (Feuille) context.getAttribute("feuille");
                 
                 TacheServices.updateTache(feuille,id,designation,dateDebut,dateFin,statut);
 //                TacheServices.updateTacheListToDB(feuille.getTacheList(),hibernate);
                 
                 req.setAttribute("feuille", feuille);
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/affiche.jsp");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/affiche");
                 dispatcher.forward(req, res);
 
             } catch (Exception ex) {

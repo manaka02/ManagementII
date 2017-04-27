@@ -44,13 +44,14 @@
         <servlet-name>ModificationController</servlet-name>
         <url-pattern>/modifier</url-pattern>
     </servlet-mapping>
+
     
     <servlet>
-        <servlet-name>ChoixRessourceController</servlet-name>
-        <servlet-class>manaka.management.controller.ChoixRessourceController</servlet-class>
+        <servlet-name>RessourceController</servlet-name>
+        <servlet-class>manaka.management.controller.RessourceController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ChoixRessourceController</servlet-name>
-        <url-pattern>/choisirRessource</url-pattern>
+        <servlet-name>RessourceController</servlet-name>
+        <url-pattern>/ressourceList</url-pattern>
     </servlet-mapping>
 </web-app>

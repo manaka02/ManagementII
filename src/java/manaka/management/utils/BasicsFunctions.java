@@ -59,9 +59,6 @@ public class BasicsFunctions {
         return res;
     }
     
-    public static void updateModele(BaseModele baseModele){
-        
-    }
     
     public static  String getColonnes(Object object){
         Class c = object.getClass();

@@ -22,10 +22,30 @@ function modalUpdate(id){
 
     });
 }
+
 function modalInsert(tacheMere, idTacheMere){
     addDataToModalInsert(tacheMere, idTacheMere);
     $('#modal').show();
 }
+
+function modalUserList(idTache){
+    $.ajax({
+        url: 'ressourceList',
+        type: 'GET',
+        dataType: "JSON",  
+        success:function(data,status){
+            $('#modalMobile').show();
+        },
+        error:function(data,statut,c){
+            alert("Erreur sur mise en place listeUsers");
+        },
+        complete:function(data,statut){
+
+        }
+    });
+    
+}
+
 $(document).ready(function(){
     
     $(".showModal").click(function(valeur){
@@ -42,6 +62,20 @@ $(document).ready(function(){
     });
     
     
+    //
+    $("#modalMobile").on("submit",function(e){
+    	e.preventDefault();
+        var selected = [];
+        $('#checkboxes input:checked').each(function() {
+            selected.push($(this).attr('name'));
+        });
+        var data = "";
+        for (var i = 0; i < selected.length; i++) {
+            data+=selected[i]+"/";
+        }
+        createUserList(data);
+        $('#modalMobile').hide();
+    });
     
     $("#post").click(function(){
     		var title = $('#title').val();

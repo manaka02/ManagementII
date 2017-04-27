@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import manaka.management.modele.BaseModele;
 import manaka.management.modele.Feuille;
 import manaka.management.modele.Tache;
+import manaka.management.modele.Utilisateur;
 import manaka.management.services.FeuilleServices;
 import manaka.management.services.TacheServices;
 
@@ -29,21 +30,20 @@ import manaka.management.services.TacheServices;
  *
  * @author Toavina RALAMBOSOA
  */
-public class AfficheController extends HttpServlet{
+public class RessourceController extends HttpServlet{
     private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException { 
             PrintWriter out = res.getWriter();
             try {
+               HibernateDao hibernate = new HibernateDao();
+               List<BaseModele> userList = hibernate.findAll(new Utilisateur());
+               
+               Gson gson = new Gson();
+                String classe = gson.toJson(userList);
+                System.out.println(classe);
+                out.println(classe);
                 
-                Feuille feuille = FeuilleServices.initData(1);
-
-                ServletContext context = getServletContext();
-                context.setAttribute("feuille", feuille);
-                req.setAttribute("feuille", feuille);
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/affiche.jsp");
-                dispatcher.forward(req, res);
-            
             } catch (Exception ex) {
                 Logger.getLogger(AfficheController.class.getName()).log(Level.SEVERE, null, ex);
                 out.println(ex.toString());
@@ -68,5 +68,4 @@ public class AfficheController extends HttpServlet{
                 out.println(ex.toString());
             }
 	}
-
 }   

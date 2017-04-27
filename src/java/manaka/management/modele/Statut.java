@@ -27,7 +27,7 @@ public class Statut extends BaseModele{
 
     @Override
     public String toString() {
-        return "Statut{" + "designation=" + designation + ", remarque=" + remarque + '}';
+        return this.getId() +":"+ this.getDesignation();
     }
     
     

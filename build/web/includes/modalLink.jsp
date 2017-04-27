@@ -17,6 +17,7 @@
               <input type="hidden" class="modal-utilisateur" name="utilisateur" value="bonsoir oh">  
             <input type="hidden" class="modal-id" name="id"> 
             <input type="hidden" class="modal-idTacheMere" name="parentId">
+            <input type="hidden" class="modal-ressource" name="ressource">
             <label><b>Nom du tache :</b></label>
             <input class="w3-input w3-margin-bottom modal-designation" type="text" name="designation"  required>
             <div>
@@ -41,10 +42,13 @@
             </div>
                 
             <div>
-                <h4>Liste des ressources : <a href="#" class="w3-btn w3-white w3-right w3-margin-bottom"><i class="fa fa-edit"></i></a></h4>
-                <i class="w3-tag w3-yellow">x Toavina</i>
-                <i class="w3-tag w3-yellow">x Fabienne</i>
-                <i class="w3-tag w3-yellow">x Baliaka</i>
+                <h4>Liste des ressources : <a href="#" onclick="modalUserList()" class="w3-btn w3-white w3-right w3-margin-bottom modal-ressourcelink"><i class="fa fa-edit"></i></a></h4>
+                <div class="modal-listuser">
+                    <i class="w3-tag w3-yellow">x Toavina</i>
+                    <i class="w3-tag w3-yellow">x Fabienne</i>
+                    <i class="w3-tag w3-yellow">x Baliaka</i>
+                </div>
+                
             </div>
                 <input type="submit" class="w3-btn w3-btn-block w3-green w3-margin-top modal-submit" value="Sauvegarder changement">
 <!--            <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me-->
