@@ -1,0 +1,71 @@
+body{
+    font-size: 12px !important;
+}
+footer{
+    
+}
+
+td{
+    cursor: pointer !important;
+}
+tbody>tr:hover{
+    background: rgba(255,255,255,0.2) !important; 
+}
+.isLink{
+    color: white !important;
+    cursor: pointer !important;
+}
+.isLink:hover{
+    text-decoration: none !important;
+}
+.container{
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.corps{
+    background:rgba(0,0,0,0.3);
+    color: white;
+    border-radius: 3%;
+}
+.menu{
+
+    padding-bottom: 10%;
+}
+.bienvenue{
+    color: orange;
+    margin-top: 5%;
+}
+.bienvenue>h1{
+    
+    margin-top: 10%;
+}
+.options>a>img:hover{
+    width: 60%;
+}
+
+.title{
+    background: rgba(255,255,255,0.8);
+    color:black;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-bottom: 10px;
+}
+.panel:hover .panel-title>h4{
+    cursor: pointer;
+    font-size: 20px;
+    transition: font-size 0.5s linear 0.1s;
+
+}
+
+.remonter{
+    width: 50px;
+    height: 42px;
+    overflow: hidden;
+
+}
+.remonter>a{
+
+
+}
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="false">
+    <class name="manaka.management.modele.Tache" table="tache" lazy="false">
+        
+        <id name="idTache" type="int" column="idtache">
+            <generator class="increment"/>
+        </id>
+        
+<!--        <property name="idFeuille" column="idfeuille" type="int"/>
+        <property name="idParent" column="idparent" type="Integer" not-null="false"/>-->
+        <!--<many-to-one name="parent" class="self.management.modele.Tache" column="idparent" not-null="false"/>-->
+        <property name="dateCreation" column="datecreation" type="date"/>
+<!--        <property name="dateDebut" column="datedebut" type="date"/>
+        <property name="dateFin" column="datefin" type="date"/>
+        <property name="idUtilisateur" column="idutilisateur" type="Integer"/>-->
+        <property name="designation"/>  
+                
+        
+        <set name="users" table="attribution" lazy="false" cascade="save-update">
+            <key column="idtache" not-null="true"/>
+            <many-to-many class="utilisateur" column="idutilisateur"/>
+        </set>
+        
+    </class>
+    
+    <class name="manaka.management.modele.Utilisateur" table="utilisateur">
+        <id name="idUtilisateur" type="int" column="idutilisateur">
+            <generator class="increment"/>
+        </id> 
+        <property name="mail"/>
+        <property name="nom"/>
+        <property name="pass"/>    
+    </class>
+
+    
+</hibernate-mapping>

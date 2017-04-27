@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/modeleHbm/Modele.hbm.xml</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/services/TacheServices.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/controller/AfficheController.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/controller/NouvelleTacheController.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/modele/Feuille.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/services/UtilisateurServices.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/services/BaseModeleServices.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/modeleDao/GeneriqueDao.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/modele/Utilisateur.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/modeleHbm/Utilisateur.hbm.xml</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/web/includes/menuBar.jsp</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/services/FeuilleServices.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/modeleHbm/Tache.hbm.xml</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/web/affiche.jsp</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/modeleHbm/Feuille.hbm.xml</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/dao/HibernateDao.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/utils/Utils.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/utils/HibernateUtil.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/utils/ConnectDB.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/modeleHbm/Statut.hbm.xml</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/controller/ModificationController.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/controller/DeleteController.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/modele/Tache.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/modele/Statut.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/web/webroot/js/functionList.js</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/web/webroot/css/style.css</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/web/includes/modalLink.jsp</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/utils/BasicsFunctions.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/manaka/management/modele/BaseModele.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/web/webroot/js/modalControl.js</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/src/java/Main.java</file>
+            <file>file:/C:/Users/Toavina%20RALAMBOSOA/Documents/Management/web/includes/menuBarLink.jsp</file>
+        </group>
+    </open-files>
+</project-private>

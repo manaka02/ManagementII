@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="false">
+    <class name="manaka.management.modele.Tache" table="tache" lazy="false">
+        
+        <id name="id" type="int" column="idtache">
+            <generator class="increment"/>
+        </id>
+        
+        
+        <property name="idParent" column="idparent" type="int" not-null="false"/>
+        <property name="idFeuille" column="idfeuille" type="int"/>
+        <many-to-one name="statut" class="manaka.management.modele.Statut" column="idstatut" not-null="false"/>
+        <property name="dateCreation" column="datecreation" type="date"/>
+        <property name="dateDebut" column="datedebut" type="date"/>
+        <property name="dateFin" column="datefin" type="date"/>
+        <property name="niveau" column="niveau" type="int"/>
+        <property name="suivant" column="suivant" type="int"/>
+        <property name="ligne" column="ligne" type="int"/>
+        <property name="designation"/>  
+        <property name="ressource"/>  
+
+    </class>
+  
+</hibernate-mapping>
